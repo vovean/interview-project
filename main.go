@@ -43,5 +43,5 @@ func main() {
 		w.Write(data)
 	})
 
-	http.ListenAndServe(":8080", mux)
+	http.ListenAndServe("", mux)
 }

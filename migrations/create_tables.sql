@@ -2,7 +2,7 @@ begin transaction;
 
 create table pastes
 (
-    id         integer primary key autoincrement,
+    id         integer,
     title      text,
     body       text,
     created_at int -- timestamp
@@ -10,7 +10,7 @@ create table pastes
 
 create table changelog
 (
-    id             integer primary key autoincrement,
+    id             integer,
     paste_id       int,
     creator_ip     text,
     paste_body_len int

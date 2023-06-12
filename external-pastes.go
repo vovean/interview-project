@@ -14,17 +14,11 @@ type externalPaste struct {
 }
 
 func getExternalPastes(id string) externalPaste {
-	resp, err := http.Get(fmt.Sprintf("https://jsonplaceholder.typicode.com/posts/%s", id))
-	if err != nil {
-		fmt.Println("cannot get external data")
-		return externalPaste{}
-	}
+	resp, _ := http.Get(fmt.Sprintf("https://jsonplaceholder.typicode.com/posts/%s", id))
 
 	var result externalPaste
 	bytes, _ := io.ReadAll(resp.Body)
-	if err := json.Unmarshal(bytes, &result); err != nil {
-		return externalPaste{}
-	}
+	json.Unmarshal(bytes, &result)
 
 	return result
 }
