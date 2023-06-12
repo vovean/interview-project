@@ -12,7 +12,7 @@ import (
 func main() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/external/", func(w http.ResponseWriter, r *http.Request) {
-		externalId := strings.TrimPrefix("/external/", r.URL.Path) // тут баг - параметры нужно местами махнуть
+		externalId := strings.TrimPrefix("/external/", r.URL.Path)
 		paste := getExternalPastes(externalId)
 
 		marshelled, _ := json.Marshal(&paste)
